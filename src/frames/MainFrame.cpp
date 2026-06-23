@@ -4,12 +4,6 @@
 #include "mathplot.h"
 #include <wx/msgdlg.h>
 
-wxBEGIN_EVENT_TABLE(MainFrame, wxFrame)
-    EVT_MENU(ID_FIT_PLOT, MainFrame::OnFitPlot)
-    EVT_MENU(ID_RESET_VIEW, MainFrame::OnResetView)
-    EVT_MENU(wxID_EXIT, MainFrame::OnResetView)  // Временно, потом заменим
-wxEND_EVENT_TABLE()
-
 MainFrame::MainFrame(const wxString& title)
     : wxFrame(nullptr, wxID_ANY, title), m_textCtrl(nullptr), m_plot(nullptr), m_currentFunction(nullptr) {
     
@@ -29,16 +23,16 @@ MainFrame::MainFrame(const wxString& title)
     m_textCtrl = new wxTextCtrl(controlPanel, wxTextCtrl_id, "", 
                                 wxDefaultPosition, wxSize(300, -1), wxTE_PROCESS_ENTER);
     
-    // Кнопки управления
-    wxButton* updateBtn = new wxButton(controlPanel, ID_UPDATE_FUNCTION, "Update");
-    wxButton* fitBtn = new wxButton(controlPanel, ID_FIT_PLOT, "Fit");
-    wxButton* resetBtn = new wxButton(controlPanel, ID_RESET_VIEW, "Reset");
+    // Кнопки управления (как по мне лишнии)
+    //wxButton* updateBtn = new wxButton(controlPanel, ID_UPDATE_FUNCTION, "Update");
+    //wxButton* fitBtn = new wxButton(controlPanel, ID_FIT_PLOT, "Fit");
+    //wxButton* resetBtn = new wxButton(controlPanel, ID_RESET_VIEW, "Reset");
     
     controlSizer->Add(label, 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
     controlSizer->Add(m_textCtrl, 1, wxALL | wxEXPAND, 5);
-    controlSizer->Add(updateBtn, 0, wxALL, 5);
-    controlSizer->Add(fitBtn, 0, wxALL, 5);
-    controlSizer->Add(resetBtn, 0, wxALL, 5);
+    //controlSizer->Add(updateBtn, 0, wxALL, 5);
+    //controlSizer->Add(fitBtn, 0, wxALL, 5);
+    //controlSizer->Add(resetBtn, 0, wxALL, 5);
     
     controlPanel->SetSizer(controlSizer);
     
@@ -56,9 +50,9 @@ MainFrame::MainFrame(const wxString& title)
     
     // Привязка событий
     m_textCtrl->Bind(wxEVT_TEXT_ENTER, &MainFrame::OnTextEnter, this);
-    updateBtn->Bind(wxEVT_BUTTON, &MainFrame::OnTextEnter, this);
-    fitBtn->Bind(wxEVT_BUTTON, &MainFrame::OnFitPlot, this);
-    resetBtn->Bind(wxEVT_BUTTON, &MainFrame::OnResetView, this);
+    //updateBtn->Bind(wxEVT_BUTTON, &MainFrame::OnTextEnter, this);
+    //fitBtn->Bind(wxEVT_BUTTON, &MainFrame::OnFitPlot, this);
+    //resetBtn->Bind(wxEVT_BUTTON, &MainFrame::OnResetView, this);
     
 }
 
@@ -123,7 +117,7 @@ void MainFrame::OnTextEnter(wxCommandEvent& event) {
     wxString text = m_textCtrl->GetValue();
     UpdateFunction(text);
 }
-
+/*
 void MainFrame::OnFitPlot(wxCommandEvent& event) {
     m_plot->Fit();
     m_plot->Refresh();
@@ -138,3 +132,4 @@ void MainFrame::OnResetView(wxCommandEvent& event) {
     m_plot->Refresh();                       // Перерисовка
     SetStatusText("View reset", 1);
 }
+*/

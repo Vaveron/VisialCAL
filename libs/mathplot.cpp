@@ -82,7 +82,7 @@ mpLayer::mpLayer() : m_type(mpLAYER_UNDEF)
 {
     SetPen((wxPen&) *wxBLACK_PEN);
     SetFont((wxFont&) *wxNORMAL_FONT);
-    m_continuous = FALSE; // Default
+    m_continuous = true; // Default РИСУЕТ ЛИНИИ ПРИ РАБОТЕ С mpFX
     m_showName   = TRUE;  // Default
     m_drawOutsideMargins = TRUE;
 	m_visible = true;

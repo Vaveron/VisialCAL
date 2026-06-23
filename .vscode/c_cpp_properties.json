@@ -4,8 +4,8 @@
             "name": "WSL",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/home/andrew/projects/VisualCAL/wxWidgets-3.2.10/windows-install/include/wx-3.2",
-                "/home/andrew/projects/VisualCAL/wxWidgets-3.2.10/windows-install/lib/wx/include/x86_64-w64-mingw32-msw-unicode-static-3.2"
+                "/home/andrew/projects/VisualCAL/windows-install/include/wx-3.2",
+                "/home/andrew/projects/VisualCAL/windows-install/lib/wx/include/x86_64-w64-mingw32-msw-unicode-static-3.2"
             ],
             "defines": [
                 "__WXMSW__",

@@ -23,10 +23,12 @@ public:
     // Обновление графика по новому выражению
     void UpdateFunction(const wxString& expression);
     
-    // Обработчики событий
     void OnTextEnter(wxCommandEvent& event);
+    /*
+    // Обработчики событий для кнопок
     void OnFitPlot(wxCommandEvent& event);
     void OnResetView(wxCommandEvent& event);
+    */
     
 private:
     void CreateToolBar();
@@ -35,8 +37,6 @@ private:
     wxTextCtrl* m_textCtrl;
     mpWindow* m_plot;
     FunctionLayer* m_currentFunction;
-    
-    wxDECLARE_EVENT_TABLE();
 };
 
 #endif // MAIN_FRAME_H
